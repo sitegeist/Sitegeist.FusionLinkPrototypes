@@ -1,0 +1,88 @@
+
+// to eventually become Neos.Fusion:ActionUri
+prototype(Sitegeist.FusionLinkPrototypes:ActionUri) {
+    @class = 'Sitegeist\\FusionLinkPrototypes\\FusionObjects\\ActionUriImplementation'
+    @exceptionHandler = 'Neos\\Fusion\\Core\\ExceptionHandlers\\AbsorbingHandler'
+    additionalParams = Neos.Fusion:DataStructure
+    arguments = Neos.Fusion:DataStructure
+    argumentsToBeExcludedFromQueryString = Neos.Fusion:DataStructure
+}
+
+// to eventually become Neos.Fusion:ActionLink
+prototype(Sitegeist.FusionLinkPrototypes:ActionLink) < prototype(Neos.Fusion:Tag) {
+    tagName = 'a'
+    additionalParams = Neos.Fusion:DataStructure
+    arguments = Neos.Fusion:DataStructure
+    argumentsToBeExcludedFromQueryString = Neos.Fusion:DataStructure
+
+    attributes.href = Sitegeist.FusionLinkPrototypes:ActionUri {
+        package = ${__package}
+        subpackage = ${__subpackage}
+        controller = ${__controller}
+        action = ${__action}
+        arguments = ${__arguments}
+        format = ${__format}
+        section = ${__section}
+        additionalParams = ${__additionalParams}
+        argumentsToBeExcludedFromQueryString = ${__argumentsToBeExcludedFromQueryString}
+        addQueryString = ${__addQueryString}
+        absolute = ${__absolute}
+    }
+
+    @context {
+        __package = ${this.package}
+        __subpackage = ${this.subpackage}
+        __controller = ${this.controller}
+        __action = ${this.action}
+        __arguments = ${this.arguments}
+        __format = ${this.format}
+        __section = ${this.section}
+        __additionalParams = ${this.additionalParams}
+        __argumentsToBeExcludedFromQueryString = ${this.argumentsToBeExcludedFromQueryString}
+        __addQueryString = ${this.addQueryString}
+        __absolute = ${this.absolute}
+    }
+}
+
+// to eventually become Neos.Neos:ModuleUri
+prototype(Sitegeist.FusionLinkPrototypes:ModuleUri) {
+    @class = 'Sitegeist\\FusionLinkPrototypes\\FusionObjects\\ModuleUriImplementation'
+    @exceptionHandler = 'Neos\\Fusion\\Core\\ExceptionHandlers\\AbsorbingHandler'
+    additionalParams = Neos.Fusion:DataStructure
+    arguments = Neos.Fusion:DataStructure
+    argumentsToBeExcludedFromQueryString = Neos.Fusion:DataStructure
+}
+
+// to eventually become Neos.Neos:ModuleLink
+prototype(Sitegeist.FusionLinkPrototypes:ModuleLink) < prototype(Neos.Fusion:Tag) {
+    tagName = 'a'
+    additionalParams = Neos.Fusion:DataStructure
+    arguments = Neos.Fusion:DataStructure
+    argumentsToBeExcludedFromQueryString = Neos.Fusion:DataStructure
+
+    attributes.href = Sitegeist.FusionLinkPrototypes:ModuleUri {
+        module = ${__module}
+        controller = ${__controller}
+        action = ${__action}
+        arguments = ${__arguments}
+        format = ${__format}
+        section = ${__section}
+        additionalParams = ${__additionalParams}
+        argumentsToBeExcludedFromQueryString = ${__argumentsToBeExcludedFromQueryString}
+        addQueryString = ${__addQueryString}
+        absolute = ${__absolute}
+    }
+
+    @context {
+        __module = ${this.module}
+        __controller = ${this.controller}
+        __action = ${this.action}
+        __arguments = ${this.arguments}
+        __format = ${this.format}
+        __section = ${this.section}
+        __additionalParams = ${this.additionalParams}
+        __argumentsToBeExcludedFromQueryString = ${this.argumentsToBeExcludedFromQueryString}
+        __addQueryString = ${this.addQueryString}
+        __absolute = ${this.absolute}
+    }
+}

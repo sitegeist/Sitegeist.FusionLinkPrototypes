@@ -1,0 +1,19 @@
+{
+    "description": "Missing Prototypes for easier linking to actions and modules",
+    "type": "neos-package",
+    "name": "sitegeist/fusionlinkprototypes",
+    "license": "GPL-3.0-or-later",
+    "require": {
+        "neos/fusion": "~7.0||~8.0||dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sitegeist\\FusionLinkPrototypes\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Sitegeist.FusionLinkPrototypes"
+        }
+    }
+}

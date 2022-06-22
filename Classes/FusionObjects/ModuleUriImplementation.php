@@ -81,9 +81,9 @@ class ModuleUriImplementation extends AbstractFusionObject
      *
      * @return mixed[]|null
      */
-    public function getAdditionalParams(): ?array
+    public function getAdditionalParams()
     {
-        return array_merge($this->fusionValue('additionalParams'), $this->fusionValue('arguments'));
+        return $this->fusionValue('additionalParams');
     }
 
     /**

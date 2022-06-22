@@ -6,6 +6,9 @@
     "require": {
         "neos/fusion": "~7.0||~8.0||dev-master"
     },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.78"
+    },
     "autoload": {
         "psr-4": {
             "Sitegeist\\FusionLinkPrototypes\\": "Classes/"
@@ -14,6 +17,15 @@
     "extra": {
         "neos": {
             "package-key": "Sitegeist.FusionLinkPrototypes"
+        }
+    },
+    "scripts": {
+        "test:stan": ["vendor/bin/phpstan analyse Classes"],
+        "test": ["composer install", "composer  test:stan"]
+    },
+    "config": {
+        "allow-plugins": {
+            "neos/composer-plugin": true
         }
     }
 }

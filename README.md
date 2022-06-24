@@ -23,7 +23,7 @@ by our employer http://www.sitegeist.de.*
 Sitegeist.FusionLinkPrototypes is available via packagist run `composer require sitegeist/fusionlinkprototypes`.
 We use semantic versioning so every breaking change will increase the major-version number.
 
-## Usage 
+## Usage
 
 ### `Sitegeist.FusionLinkPrototypes:ActionUri`
 
@@ -51,7 +51,7 @@ Example::
 
 ### `Sitegeist.FusionLinkPrototypes:ActionLink`
 
-Extends `Neos.Fusion:Tag` and adds an `attributes.href` defined as `Sitegeist.FusionLinkPrototypes:ActionUr`
+Extends `Neos.Fusion:Tag` and adds an `attributes.href` defined as `Sitegeist.FusionLinkPrototypes:ActionUri`
 
 Tag properties:
 - `tagName` (string) Tag name of the HTML element, defaults to `a`
@@ -76,7 +76,7 @@ ActionUri properties:
 Example::
 
 	link = Sitegeist.FusionLinkPrototypes:ActionLink {
-        content = "Register new user"
+		content = "Register new user"
 		package = 'My.Package'
 		controller = 'Registration'
 		action = 'new'
@@ -100,9 +100,9 @@ Built a URI to a backend module. This allows to link between backend modules
 Example::
 
 	uri = Sitegeist.FusionLinkPrototypes:ModuleUri {
-		module = 'content'
-		action = 'index'
-		arguments = ${{node: node}}
+		module="administration/sites"
+		action="edit"
+		arguments.site = ${site}
 	}
 
 ### `Sitegeist.FusionLinkPrototypes:ModuleLink`
@@ -131,11 +131,32 @@ ModuleUri properties:
 Example::
 
 	link = Sitegeist.FusionLinkPrototypes:ModuleLink {
-		content = "To the content module"
-		module = 'content'
-		action = 'index'
-		arguments = ${{node: node}}
+		content = "To the site module"
+		module="administration/sites"
+		action="edit"
+		arguments.site = ${site}
 	}
+
+### Linking to the Neos content-module 
+
+As the Neos content-module is not based on other backend modules it is linked via `Sitegeist.FusionLinkPrototypes:ActionLink`. 
+
+Example::
+
+	contentModuleLink = Sitegeist.FusionLinkPrototypes:ActionLink {
+		content = "To the content module"
+		package="Neos.Neos.Ui"
+		controller="Backend"
+		action="index"
+		arguments.node = ${node}
+	}
+
+	contentModuleUri = Sitegeist.FusionLinkPrototypes:ActionUri {
+		module="administration/sites"
+		action="edit"
+		arguments.node = ${node}
+	}
+
 
 
 ## Contribution

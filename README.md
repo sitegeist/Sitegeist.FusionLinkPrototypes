@@ -85,6 +85,7 @@ Example::
 ### `Sitegeist.FusionLinkPrototypes:ModuleUri`
 
 Built a URI to a backend module. This allows to link between backend modules 
+!!! For links to the Neos content module read the dedicated [section](#linking-to-the-neos-content-module) !!!
 
 - `module` (string) The module path (e.g. `content` or `management/sites`)
 - `controller` (string) The controller name (e.g. `Registration`)
@@ -108,6 +109,7 @@ Example::
 ### `Sitegeist.FusionLinkPrototypes:ModuleLink`
 
 Extends `Neos.Fusion:Tag` and adds an `attributes.href` defined as `Sitegeist.FusionLinkPrototypes:ModuleUri`
+!!! For links to the Neos content module read the dedicated [section](#linking-to-the-neos-content-module) !!!
 
 Tag properties:
 - `tagName` (string) Tag name of the HTML element, defaults to `a`
